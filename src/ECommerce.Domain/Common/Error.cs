@@ -15,12 +15,10 @@ public record Error(string Message, ErrorType ErrorType)
     public static class ChemicalElement
     {
         public static Error InvalidAtomicNumber => Validation($"Atomic number must be between 1 and 118");
-        
         public static Error InvalidSymbol => Validation($"Symbol must be 1-3 characters");
-        
         public static Error EmptyName => Validation("Element name cannot be empty");
-        
         public static Error NegativeAtomicMass => Validation($"Atomic mass must be positive");
+        public static Error NotFound => NotFound($"Chemical Element not found");
     }
     
     public static class Category
@@ -37,6 +35,13 @@ public record Error(string Message, ErrorType ErrorType)
         public static Error NegativeAmount(decimal amount) => Validation($"Amount cannot be negative. Got: {amount}");
         public static Error InvalidCurrency(string currency) => Validation($"Currency {currency} is invalid");
         public static Error TooManyDecimalPlaces => Validation("Can't be lenght greater than two");
+    }
+    
+    public static class Database
+    {
+        public static Error ConnectionFailed => Unavailable("Connection to server failed");
+        public static Error TimeoutGateway => Timeout("Timeout connection to server");
+        public static Error InternalServer => Internal("Internal Server Error");
     }
 }
 
