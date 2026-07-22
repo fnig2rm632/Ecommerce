@@ -9,7 +9,7 @@ services:
       POSTGRES_USER: ecommerce_user
       POSTGRES_PASSWORD: ecommerce_password
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -28,7 +28,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=ecommerce;Username=ecommerce_user;Password=ecommerce_pass
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=ecommerce;Username=ecommerce_user;Password=ecommerce_password
     ports:
       - "8080:8080"
       - "8081:8081"
