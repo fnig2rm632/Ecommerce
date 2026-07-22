@@ -9,11 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.16.15" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ECommerce.Application\ECommerce.Application.csproj" />
+    <ProjectReference Include="..\ECommerce.Infrastructure\ECommerce.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
