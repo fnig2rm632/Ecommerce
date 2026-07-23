@@ -6,6 +6,16 @@ public static class DependencyInjection
     {
         services.AddControllers();
         
+        services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:5173", "http://localhost:4173")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+        
         return services;
     }
 }

@@ -12,6 +12,8 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+app.UseCors();
+
 app.MapControllers();
 
 if (app.Environment.IsDevelopment())
