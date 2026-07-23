@@ -1,4 +1,4 @@
-using ECommerce.Application.SQRS.Response.ChemicalElements;
+using ECommerce.Application.SQRS.Response.ChemicalElement;
 using ECommerce.Domain.Common;
 using ECommerce.Domain.Entities;
 

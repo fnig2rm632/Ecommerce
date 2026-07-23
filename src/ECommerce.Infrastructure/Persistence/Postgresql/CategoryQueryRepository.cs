@@ -1,6 +1,6 @@
 using Dapper;
 using ECommerce.Application.Interfaces;
-using ECommerce.Application.SQRS.Response.ChemicalElements;
+using ECommerce.Application.SQRS.Response.Category;
 using ECommerce.Domain.Common;
 using Npgsql;
 
@@ -8,7 +8,7 @@ namespace ECommerce.Infrastructure.Persistence.Postgresql;
 
 public class CategoryQueryRepository(NpgsqlConnection connection) : ICategoryQueryRepository
 {
-    public async Task<Result<List<CategoryResponse>>> GetAllAsync()
+    public async Task<Result<List<CategoryResponse>>> GetAll()
     {
         try
         {

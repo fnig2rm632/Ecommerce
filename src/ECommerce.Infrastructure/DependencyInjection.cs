@@ -1,3 +1,4 @@
+using Dapper;
 using ECommerce.Application.Interfaces;
 using ECommerce.Infrastructure.Data;
 using ECommerce.Infrastructure.Persistence.Postgresql;
@@ -18,6 +19,7 @@ public static class DependencyInjection
         DatabaseInitializer.Initialize(configuration);
 
         services.AddScoped<IChemicalElementQueryRepository, ChemicalElementQueryRepository>();
+        services.AddScoped<ICategoryQueryRepository, CategoryQueryRepository>();
         
         return services;
     }

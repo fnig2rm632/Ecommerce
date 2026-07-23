@@ -1,6 +1,6 @@
 using Dapper;
 using ECommerce.Application.Interfaces;
-using ECommerce.Application.SQRS.Response.ChemicalElements;
+using ECommerce.Application.SQRS.Response.ChemicalElement;
 using ECommerce.Domain.Common;
 using Npgsql;
 
@@ -14,7 +14,7 @@ public class ChemicalElementQueryRepository(NpgsqlConnection connection) : IChem
         { 
             const string? query = @"SELECT * 
                                     FROM chemical_elements";
-            
+        
             var elements = await connection.QueryAsync<ChemicalElementResponse>
                 (query);
             
