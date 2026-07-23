@@ -12,7 +12,12 @@ public class ChemicalElementQueryRepository(NpgsqlConnection connection) : IChem
     {
         try
         { 
-            const string? query = @"SELECT * 
+            const string? query = @"SELECT id, symbol, name, 
+                                    atomic_mass AS ""AtomicMass"", 
+                                    price_amount AS ""PriceAmount"", 
+                                    price_currency AS ""PriceCurrency"", 
+                                    is_radioactive AS ""IsRadioactive"", 
+                                    is_synthetic AS ""IsSynthetic""
                                     FROM chemical_elements";
         
             var elements = await connection.QueryAsync<ChemicalElementResponse>
@@ -38,7 +43,12 @@ public class ChemicalElementQueryRepository(NpgsqlConnection connection) : IChem
     {
         try
         { 
-            const string? query = @"SELECT * 
+            const string? query = @"SELECT id, symbol, name, 
+                                    atomic_mass AS ""AtomicMass"", 
+                                    price_amount AS ""PriceAmount"", 
+                                    price_currency AS ""PriceCurrency"", 
+                                    is_radioactive AS ""IsRadioactive"", 
+                                    is_synthetic AS ""IsSynthetic""
                                     FROM chemical_elements
                                     WHERE id = @Id";
             
@@ -68,8 +78,12 @@ public class ChemicalElementQueryRepository(NpgsqlConnection connection) : IChem
     {
         try
         { 
-            const string? query = @"SELECT distinct e.id, e.symbol, e.name, e.atomic_mass, 
-                                    e.price_amount, e.price_currency, e.is_radioactive, e.is_synthetic
+            const string? query = @"SELECT distinct e.id, e.symbol, e.name, 
+                                    e.atomic_mass AS ""AtomicMass"", 
+                                    e.price_amount AS ""PriceAmount"", 
+                                    e.price_currency AS ""PriceCurrency"", 
+                                    e.is_radioactive AS ""IsRadioactive"", 
+                                    e.is_synthetic AS ""IsSynthetic""
                                     FROM chemical_elements e
                                     INNER join element_categories ec on e.id = ec.element_id
                                     where ec.category_id = Any(@CategoryIds)";
